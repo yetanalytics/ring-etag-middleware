@@ -3,7 +3,7 @@
   :url "https://github.com/yetanalytics/ring-etag-middleware"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.7.0"]
+  :dependencies [[org.clojure/clojure "1.8.0"]
                  [pandect "0.5.4"]]
 
   :profiles {:dev
