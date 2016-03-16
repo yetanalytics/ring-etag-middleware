@@ -1,5 +1,7 @@
 * ring-etag-middleware
 
+[[https://travis-ci.org/yetanalytics/ring-etag-middleware.svg?branch=master]]
+
 Calculates etags for [[https://github.com/ring-clojure/ring][ring]] responses.
 
 Heavily influenced by
