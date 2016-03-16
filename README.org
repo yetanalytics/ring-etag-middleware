@@ -1,10 +1,21 @@
 * ring-etag-middleware
 
-A Clojure library designed to ... well, that part is up to you.
+Calculates etags for [[https://github.com/ring-clojure/ring][ring]] responses.
+
+Heavily influenced by
+[[https://clojars.org/org.clojars.jws/ring-etag-middleware][org.clojars.jws/ring-etag-middleware]]
 
 ** Usage
 
-FIXME
+Add the following to your =project.clj=:
+
+=[com.yetanalytics/ring-etag-middleware "0.1.0-SNAPSHOT"]=
+
+In your handler,
+
+=(require '[ring.middleware.etag :refer [wrap-etag]])=
+
+And wrap your etags.
 
 ** License
 

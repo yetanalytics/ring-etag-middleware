@@ -32,4 +32,4 @@ This change log follows the conventions of
 *** Added
 
 -  Files from the new template.
--  Widget maker public API - =make-widget-sync=.
+-  Ring etag middleware fn, =wrap-etag=
