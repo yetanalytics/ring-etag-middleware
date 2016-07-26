@@ -11,6 +11,9 @@
 (defmethod calculate-etag File [f]
   (str (.lastModified f) "-" (.length f)))
 
+(defmethod calculate-etag :default [x]
+  nil)
+
 (defn- not-modified [etag]
   {:status 304 :body "" :headers {"etag" etag}})
 
@@ -20,15 +23,13 @@
            status :status
            {etag "etag"} :headers
            :as resp} (handler req)
-          if-none-match (get-in req [:headers "if-none-match"])
-          dispatch-value (class body)]
+          if-none-match (get-in req [:headers "if-none-match"])]
       (if (and etag (not= status 304))
         (if (= etag if-none-match)
           (not-modified etag)
           resp)
-        (if-let [method-fn (get-method calculate-etag dispatch-value)]
-          (let [etag (method-fn body)]
-            (if (= etag if-none-match)
-              (not-modified etag)
-              (assoc-in resp [:headers "etag"] etag)))
+        (if-let [new-etag (calculate-etag body)]
+          (if (= new-etag if-none-match)
+            (not-modified new-etag)
+            (assoc-in resp [:headers "etag"] new-etag))
           resp)))))
