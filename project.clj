@@ -1,4 +1,4 @@
-(defproject com.yetanalytics/ring-etag-middleware "0.1.0-SNAPSHOT"
+(defproject com.yetanalytics/ring-etag-middleware "0.1.1"
   :description "A bold new etag middleware"
   :url "https://github.com/yetanalytics/ring-etag-middleware"
   :license {:name "Eclipse Public License"
